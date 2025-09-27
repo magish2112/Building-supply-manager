@@ -160,6 +160,19 @@ python -m pytest tests/ --cov=. --cov-report=html
 
 ## 🔧 Развертывание
 
+### Локальный запуск
+```bash
+# Клонирование репозитория
+git clone https://github.com/magish2112/Building-supply-manager.git
+cd Building-supply-manager
+
+# Установка зависимостей
+pip install -r requirements.txt
+
+# Запуск приложения
+python run.py
+```
+
 ### Production с Gunicorn
 ```bash
 pip install gunicorn
@@ -167,10 +180,21 @@ export FLASK_ENV=production
 gunicorn -w 4 "app_new:create_app('production')" -b 0.0.0.0:8000
 ```
 
+### На Heroku
+```bash
+heroku create your-app-name
+git push heroku master
+```
+
+### На Railway или Render
+1. Подключите GitHub репозиторий
+2. Укажите `python run.py` как команду запуска
+3. Добавьте переменные окружения при необходимости
+
 ### Docker (будущая возможность)
 ```bash
-docker build -t supply-tracker .
-docker run -p 5000:5000 supply-tracker
+docker build -t building-supply-manager .
+docker run -p 5000:5000 building-supply-manager
 ```
 
 ## 🤝 Разработка
