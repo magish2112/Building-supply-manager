@@ -1,6 +1,13 @@
 # 🚀 Система управления снабжением
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.3+-green.svg)](https://flask.palletsprojects.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-orange.svg)](https://www.sqlite.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Полнофункциональная веб-система для управления заявками на снабжение строительных объектов с современным интерфейсом и REST API.
+
+**[🚀 Демо-версия](https://magish2112.github.io/building-supply-manager/)** | **[📚 Репозиторий](https://github.com/magish2112/building-supply-manager)** | **[📖 Документация API](api_docs.md)**
 
 ## ✨ Ключевые возможности
 
