@@ -12,9 +12,13 @@ from models.database import db
 from controllers.request_controller import request_bp
 from controllers.supplier_controller import supplier_bp
 from controllers.site_controller import site_bp
+from controllers.api_controller import api_bp
 
 # Import utilities
 from utils.notification_setup import setup_notifications, setup_logging
+
+# Import demo data initializer
+from init_demo_data import create_demo_data
 
 def create_app(config_name='development'):
     """Application factory pattern"""
@@ -40,11 +44,18 @@ def create_app(config_name='development'):
     app.register_blueprint(request_bp)
     app.register_blueprint(supplier_bp, url_prefix='/suppliers')
     app.register_blueprint(site_bp, url_prefix='/sites')
+    app.register_blueprint(api_bp)
 
     # Add URL rules for main routes to work with blueprints
     with app.app_context():
         # Create database tables
         db.create_all()
+
+        # Create demo data if tables are empty
+        try:
+            create_demo_data()
+        except Exception as e:
+            app.logger.warning(f"Could not create demo data: {e}")
 
         # Add main routes
         @app.route('/')
